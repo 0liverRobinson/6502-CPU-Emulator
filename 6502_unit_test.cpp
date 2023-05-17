@@ -1,6 +1,7 @@
 #include <bitset>
 #include <string.h>
-#include "cpu.h"
+#include "include/6502_main.h"
+
 #define COLUMN_LEN 16
 #define COLUMN_LEN_UNIT_TEST 55
 #define MARGIN 8
@@ -63,7 +64,6 @@ void CPU::unitTestInJumpRoutine(Byte instruction, Word expected_address, int clo
     memory[program_counter+1] = TEST_ADDRESS;
     memory[program_counter+2] = TEST_ADDRESS;
 
-    // Passed Test 1
     executeInstruction(clock_cycles);
     unitTestOut(current_instruction, expected_address, program_counter);
 
@@ -89,10 +89,10 @@ void CPU::unitTest()
     Word expected_address = TEST_ADDRESS;
 
     unitTestInJumpRoutine(JUMP_TO_SUBROUTINE, expected_address, 6);
-
     unitTestInAccumulator(LOAD_ACCUMULATOR_IMMEDIATE, expected_result, 2, false);    
     unitTestInAccumulator(LOAD_ACCUMULATOR_ZERO_PAGE, expected_result, 3, true);
     unitTestInAccumulator(LOAD_ACCUMULATOR_ZERO_PAGE_X, expected_result, 3, true);
+
 }
 
 int main()

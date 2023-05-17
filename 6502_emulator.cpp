@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <bitset>
-#include "instruction_set.h"
+#include "include/cpu.h"
 
 
 int main()
