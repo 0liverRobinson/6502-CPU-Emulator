@@ -8,6 +8,8 @@ Run main emulator
 Include the emulator in one of your projects:
 ```
 #include "includes/6502_main.h"
+...
+CPU cpu = CPU();
 ```
 
 Perform a unit test to check all instructions are working as expected
